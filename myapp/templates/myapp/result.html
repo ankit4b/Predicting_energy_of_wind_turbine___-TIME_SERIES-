@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>my form</title>
+    <style>
+        body{
+            background:url("{% static 'Myapp/w1.jpg' %}") no-repeat center center fixed;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            -o-background-size:cover;
+            background-size:cover;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid " style="opacity:1;">
+
+    <div class="jumbotron text-center w-75 m-auto">
+        <h1><strong>Prediction of futute Data</strong></h1>
+    </div>
+    <br>
+
+    <div class="jumbotron text-center w-75 m-auto text-center">
+        <div class="row">
+            <div class="col-5 col-md-5 col-lg-6 col-xl-6 com-sm-6 text-right pr-4">
+                {% for j in new_dates %}
+                    <p><strong>{{ j }}</strong></p>
+                {% endfor %}
+            </div>
+            <div class="col-5 col-md-5 col-lg-6 col-xl-6 com-sm-6 text-left pl-4">
+                {% for i in result %}
+                    <p><strong>{{ i }} </strong></p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

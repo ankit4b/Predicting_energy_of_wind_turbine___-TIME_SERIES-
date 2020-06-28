@@ -1,0 +1,16 @@
+Django==3.0.7
+joblib==0.15.1
+Keras-Preprocessing==1.1.2
+numpy==1.19.0
+pandas==1.0.1
+Pillow==7.1.2
+requests==2.24.0
+scikit-learn==0.23.1
+scipy==1.4.1
+seaborn==0.10.1
+six==1.15.0
+sklearn==0.0
+tensorboard==2.2.2
+tensorboard-plugin-wit==1.6.0.post3
+tensorflow==2.2.0
+tensorflow-estimator==2.2.0

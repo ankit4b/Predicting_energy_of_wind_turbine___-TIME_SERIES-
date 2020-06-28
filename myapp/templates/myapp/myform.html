@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+
+    <title>my form</title>
+    <style>
+        body{
+            background:url("{% static 'myapp/wallpaper2.jpg' %}") no-repeat center center fixed;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            -o-background-size:cover;
+            background-size:cover;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid " style="opacity:0.9; font-family: "Times New Roman", Times, serif;">
+
+    <div class="p-5 text-center m-0" style=" background-color: #21D4FD;
+background-image: linear-gradient(45deg, #21D4FD 0%, #B721FF 50%, #4e13ff 100%);
+">
+        <h2 style="color:white; font-family: 'Merienda One', cursive;"><strong>Predicting the energy output of wind turbine based on weather condition</strong></h2>
+    </div>
+    <br>
+
+    <div class="container">
+    <form method="POST" class="img-thumbnail form-group p-4">
+        {% csrf_token %}
+
+        <div>
+            <div class="text-center">
+                <label class="text-center"><b>HOUR :</b></label>
+            </div>
+            <input  type="number" name="hour" class="form-control w-50 m-auto" min="1" max="72">
+        </div>
+        <br>
+
+        <input type="submit" class="btn-primary form-control w-75 m-auto">
+
+    </form>
+        <br>
+
+        {% if result %}
+            <div class="jumbotron text-center w-75 m-auto text-center">
+<!--                <div>-->
+<!--                    <h3>Power Prediction</h3>-->
+<!--                    <hr style="color:black;">-->
+<!--                </div>-->
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 col-xl-12 com-sm-12 text-center pr-4">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">
+                            TIME
+                        </th>
+                        <th scope="col">
+                            POWER GENERATE
+                        </th>
+                    </tr>
+                    </thead>
+                    {% for i, j in result %}
+
+                    <tr>
+                        <td>
+                        <strong>{{ i }}   </strong>
+                        </td>
+
+                        <td>
+                            {% if j >= 3000 %}
+                             <span style="color:green;"><strong>   {{ j }}</strong></span>
+                            {% elif j >= 2000  %}
+                            <span class="text-primary"><strong>   {{ j }}</strong></span>
+                            {% elif j >= 500  %}
+                            <span class="text-warning"><strong>   {{ j }}</strong></span>
+                            {% else  %}
+                            <span class="text-danger"><strong>   {{ j }}</strong></span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            
+        </div>
+    </div>
+        {% endif %}
+
+        </div>
+</div>
+
+</body>
+</html>
