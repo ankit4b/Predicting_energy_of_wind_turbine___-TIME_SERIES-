@@ -10,4 +10,4 @@ Wind energy plays an increasing role in the supply of energy world-wide. The ene
 Develop a time series model to Predict the power output of wind farm based on the weather condition in the site (1Hr prediction to 72Hrs. prediction), And recommend the Power Grid to suggest the best time to utilize the energy from wind farm
 
 ### Output Screenshot :
-<img src="Screenshots/output.png" width="600">
+<img src="Screenshots/output.png" width="800">
